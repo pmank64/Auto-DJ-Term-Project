@@ -9,6 +9,7 @@ int main() {
     std::getline(std::cin,command);
     bool inputRecognized = false;
 
+    
     while(command!="quit"){
         inputRecognized = false;
 
