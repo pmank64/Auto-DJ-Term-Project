@@ -19,9 +19,7 @@ int main() {
             inputRecognized = true;
             std::cout << "access your library" << userInput << std::endl;
         }
-        if(command == "qwe"){
-            std::cout << "YEEHAW" << std::endl;
-        }
+
         if(command == "help"){
             inputRecognized = true;
             std::cout << "o----------------------------List of Commands-----------------------------o" << std::endl;
@@ -40,12 +38,11 @@ int main() {
             std::cout << "o-------------------------------------------------------------------------o" << std::endl;
         }
 
-
         if(!inputRecognized){
             std::cout << "Command not recognized, type help for a list of commands." << std::endl;
         }
 
-        std::getline(std::cin,command);
+        std::getline(std::cin,userInput);
         command = userInput.substr(0, userInput.find(" "));
     }
 
