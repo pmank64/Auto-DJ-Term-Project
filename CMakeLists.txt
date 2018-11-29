@@ -3,4 +3,5 @@ project(autoDJ)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(autoDJ main.cpp)
+add_executable(autoDJ main.cpp
+        Song.cpp)

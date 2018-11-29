@@ -9,16 +9,17 @@
 
 class Song {
 private:
-    std::string Artist;
+    std::string artist;
     std::string title;
-    std::string duration;
+    int duration;
     int playCount;
 public:
-    Song(std::string artistIn, std::string titleIn, std::string durationIn, int playCountIn);
+    Song(std::string artistIn, std::string titleIn, int durationIn);
     std::string getArtist();
     std::string getTitle();
-    std::string getDuration();
+    int getDuration();
     int getPlayCount();
+    void addPlayCount();
 };
 
 #endif //AUTO_DJ_TERM_PROJECT_SONG_H
