@@ -7,8 +7,8 @@
 
 class Library{
 private:
-//Container for all songs
-//Container for all playlists
+//Container for all songs (Linked List of Nodes)
+//Container for all playlists (Array of all playlists) (Playlists contain pointers to song objects stored in the container for songs)
 public:
     void addSong(Song newSong);
     void removeSong(Song songToRemove);
