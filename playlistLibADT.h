@@ -22,7 +22,7 @@ public:
     virtual std::string songsLeft()=0;
 
     virtual std::string playnext()=0;
-    virtual playlistLibADT randomPlaylist()=0;
+    virtual Playlist randomPlaylist()=0;
 
 
 
