@@ -1,8 +1,10 @@
 #include <iostream>
+#include "Library.h"
 
 int main() {
 
     //TODO Set up objects and stuff
+    Library* library = new Library();
 
     std::cout << "Welcome to Auto-DJ, type help for a list of commands, type quit to end program." << std::endl;
     std::cout << "Enter Command: " << std::endl;
@@ -35,16 +37,37 @@ int main() {
 
         if(command == "library") {
             inputRecognized = true;
-            std::cout << "TODO: access your library" << std::endl;
+            std::cout << "Listing songs..." << std::endl;
+
+            std::cout << library->listSongs() << std::endl;
+
+        }
+
+        if(command == "addsong") {
+            inputRecognized = true;
+            //get artistName
+            std::cout << "Enter Artist Name: " << std::endl;
+            std::string artistName;
+            std::getline(std::cin,artistName);
+            //get songTitle
+            std::cout << "Enter Song Title: " << std::endl;
+            std::string songTitle;
+            std::getline(std::cin,songTitle);
+            //get Duration
+            std::cout << "Enter Song Duration: " << std::endl;
+            std::string strSongDuration;
+            std::getline(std::cin, strSongDuration);
+            int songDuration = std::stoi(strSongDuration);
+
+            library->addSong(artistName, songTitle, songDuration);
+            std::cout << "Added " << songTitle << " by " << artistName << std::endl;
         }
 
         if(command == "artist"){
             inputRecognized = true;
             std::string artistName = userInput.substr(7, std::string::npos);
             std::cout << "listing all songs by " << artistName << "." << std::endl;
-            //TODO
-            //Iterate through all songs
-            //if a song artist matches artistName, print it
+            std::cout << library->listSongsOfArtist(artistName) << std::endl;
         }
 
         if(command == "song"){
@@ -125,6 +148,7 @@ int main() {
         std::getline(std::cin,userInput);
         command = userInput.substr(0, userInput.find(" "));
     }
+
 
     std::cout << "Quitting Auto-DJ" << std::endl;
     return 0;

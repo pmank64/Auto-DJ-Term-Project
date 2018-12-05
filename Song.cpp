@@ -5,10 +5,17 @@
 
 
 Song::Song(std::string artistIn, std::string titleIn, int durationIn){
-    std::string artist = artistIn;
-    std::string title = titleIn;
-    int duration = durationIn;
-    int playCount = 0;
+    artist = artistIn;
+    title = titleIn;
+    duration = durationIn;
+    playCount = 0;
+}
+
+Song::Song(){
+    std::string artist = "not a song";
+    std::string title = "not a song";
+    duration = 0;
+    playCount = 0;
 }
 
 std::string Song::getArtist(){
