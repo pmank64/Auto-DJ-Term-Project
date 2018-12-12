@@ -7,7 +7,7 @@
 #include "Song.h"
 
 Library::Library() {
-    Songs = new SongLibrary();
+    Songs = new SongLibraryArray();
     //PlaylistLibrary Playlists = PlaylistLibrary();
 }
 
@@ -25,6 +25,10 @@ std::string Library::listSongsOfArtist(std::string artistName) {
 
 void Library::addSong(std::string title, std::string artist, int duration) {
     Songs->addSong(title, artist, duration);
+}
+
+bool Library::isSongInLib(std::string title, std::string artist) {
+    return Songs->isSongInLib(title, artist);
 }
 
 void Library::removeSong(std::string title, std::string artist) {

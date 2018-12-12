@@ -7,4 +7,6 @@ add_executable(autoDJ main.cpp
         Song.cpp
         Library.cpp
         SongNode.cpp
-        SongLibrary.cpp)
+        SongLibrary.cpp
+        SongLibraryArray.cpp
+        )

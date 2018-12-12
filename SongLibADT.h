@@ -12,6 +12,7 @@ private:
 public:
     virtual ~SongLibADT();
     virtual void addSong(Song newSong) =0;
+    virtual bool isSongInLib(std::string artist, std::string title) =0;
     virtual Song* getSongPtr(std::string artist, std::string title) =0;
     virtual std::string getSongInfo(std::string artist, std::string title) =0;
 };

@@ -18,6 +18,7 @@ public:
     void addSong(std::string artist, std::string title, int duration);
     Song* getSongPtr(std::string artist, std::string title);
     std::string getSongInfo(std::string);
+    bool isSongInLib(std::string artist, std::string title);
     std::string listSongs();
     std::string listSongsOfArtist(std::string artistName);
 };

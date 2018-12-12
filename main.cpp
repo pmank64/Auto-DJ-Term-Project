@@ -1,4 +1,5 @@
 #include <iostream>
+#include <fstream>
 #include "Library.h"
 
 int main() {
@@ -70,27 +71,46 @@ int main() {
             std::cout << library->listSongsOfArtist(artistName) << std::endl;
         }
 
-        if(command == "song"){
+        if(command == "song") {
             inputRecognized = true;
             //get artistName
             std::cout << "Enter Artist Name: " << std::endl;
             std::string artistName;
-            std::getline(std::cin,artistName);
+            std::getline(std::cin, artistName);
             //get songTitle
             std::cout << "Enter Song Title: " << std::endl;
             std::string songTitle;
-            std::getline(std::cin,songTitle);
+            std::getline(std::cin, songTitle);
 
-            std::cout << "printing info for " << songTitle << " by " << artistName << "." << std::endl;
+
+            std::cout << "printing info for " << library->isSongInLib(artistName, songTitle) << std::endl;
+        }
+
+        if(command == "tests"){
+            inputRecognized = true;
+            if("bbb" > "ccc")
+                std::cout << "bb" << std::endl;
+            else
+                std::cout << "cc" << std::endl;
         }
 
         if(command == "import"){
             inputRecognized = true;
-            std::string fileName = userInput.substr(7, std::string::npos);
+            //get fileName
+            std::cout << "Enter Filename: " << std::endl;
+            std::string fileName;
+            std::getline(std::cin,fileName);
+
             //try to instantiate file
             //if it doesn't exist, catch and print error message
             //if it does, add all new songs
             //list all songs that already existed
+            std::cout << "~" << fileName << "~" << std::endl;
+            std::ifstream myFile(fileName);
+            if(myFile.fail())
+                std::cout << "ouch!" << std::endl;
+            else
+                std::cout << "nice!" << std::endl;
         }
 
         if(command == "discontinue"){
