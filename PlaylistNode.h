@@ -5,16 +5,22 @@
 #ifndef AUTODJ_PLAYLISTNODE_H
 #define AUTODJ_PLAYLISTNODE_H
 
+#include <string>
+#include <stdexcept>
+#include "Song.h"
+
+
 class PlaylistNode {
 private:
-//    Playlist* item;
-//    PlaylistNode* next;
+    Song* item;
+    PlaylistNode* next;
 public:
-//    PlaylistNode(Playlist* item);
-//    PlaylistNode(const PlaylistNode& nodeToCopy);
-//    Playlist* getItem();
-//    PlaylistNode* getNext();
-
+    PlaylistNode(Song* item);
+    PlaylistNode(const PlaylistNode& nodeToCopy);
+    Song* getItem();
+    PlaylistNode* getNext();
+    void setItem(Song* song);
+    void setNext(PlaylistNode* newNext);
 };
 
 
