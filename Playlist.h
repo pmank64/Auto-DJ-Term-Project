@@ -13,14 +13,17 @@ class Playlist{
 private:
     PlaylistNode* front;
     float duration;
+    std::string playlistName;
 public:
-    Playlist();
+    Playlist(std::string playlistNameIn);
     ~Playlist();
     Playlist& operator=(const Playlist& stackToCopy);
     Song* removeSong(Song* toRemove);
     void addSongToPlaylist(Song* songToAdd);
     bool isEmpty();
     float getDuration();
+    std::string getName();
+    std::string listSongs();
 };
 
 #endif //AUTODJ_PLAYLIST_H

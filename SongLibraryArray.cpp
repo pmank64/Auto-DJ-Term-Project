@@ -2,7 +2,6 @@
 // Created by John Hunter on 12/11/2018.
 //
 
-#include <iostream>
 #include "SongLibraryArray.h"
 
 SongLibraryArray::SongLibraryArray() {
@@ -70,5 +69,25 @@ std::string SongLibraryArray::listSongs(){
 }
 
 std::string SongLibraryArray::listSongsOfArtist(std::string artistName) {
+    std::string toString = "";
+    int count = 1;
+    for(int i=0; i<currSongCount; i++){
+        if(array[i]->getArtist() == artistName) {
+            toString = toString + std::to_string(count) + ". " + array[i]->getTitle() + " by " + array[i]->getArtist() + " (" + std::to_string(array[i]->getDuration()) + ") \n";
+            count++;
+        }
+    }
+    if(toString == "")
+        return "No songs of that artist";
+    else
+        return toString;
+}
 
+Song* SongLibraryArray::getSongPtr(std::string artistName, std::string songTitle) {
+    //TODO check if song is in the library before running this
+    for(int i=0; i<currSongCount; i++){
+        if(array[i]->getArtist()==artistName && array[i]->getTitle()==songTitle){
+            return array[i];
+        }
+    }
 }

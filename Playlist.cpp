@@ -3,9 +3,10 @@
 //
 #include "Playlist.h"
 
-Playlist::Playlist(){
+Playlist::Playlist(std::string playlistNameIn){
     front = nullptr;
     duration = 0;
+    playlistName = playlistNameIn;
 }
 
 Playlist::~Playlist(){
@@ -70,14 +71,17 @@ void Playlist::addSongToPlaylist(Song* songToAdd){
     if (front == nullptr){
         front = nodeToAdd;
     }
-    PlaylistNode* currNode = front;
-    bool tracker = true;
-    while (tracker){
-        if (currNode == nullptr){
-            currNode->setNext(nodeToAdd);
-            tracker = false;
+    else{
+        PlaylistNode* currNode = front;
+        bool tracker = true;
+        while (tracker){
+            if (currNode == nullptr){
+                currNode->setNext(nodeToAdd);
+                tracker = false;
+            }
+            currNode = currNode->getNext();
         }
-        currNode = currNode->getNext();
+
     }
     //TODO does this work?
 }
@@ -86,7 +90,27 @@ float Playlist::getDuration(){
     return duration;
 }
 
+std::string Playlist::getName() {
+    return playlistName;
+}
+
 bool Playlist::isEmpty(){
     return front == nullptr;
 }
 
+std::string Playlist::listSongs() {
+    if(front==nullptr)
+        return "No songs in Playlist";
+    else{
+        PlaylistNode* currNode = front;
+        std::string toString = "";
+        int count = 1;
+        while(currNode->getNext()!=nullptr){
+            toString = toString + std::to_string(count) + ". " + currNode->getItem()->getTitle() + " by " + currNode->getItem()->getArtist() + " (" + std::to_string(currNode->getItem()->getDuration()) + ") \n";
+            count++;
+            currNode = currNode->getNext();
+        }
+        toString = toString + std::to_string(count) + ". " + currNode->getItem()->getTitle() + " by " + currNode->getItem()->getArtist() + " (" + std::to_string(currNode->getItem()->getDuration()) + ") \n";
+        return toString;
+    }
+}

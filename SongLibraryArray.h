@@ -20,6 +20,7 @@ public:
     SongLibraryArray& operator=(const SongLibraryArray& songLibToCopy);
     ~SongLibraryArray();
 
+    Song* getSongPtr(std::string artistName, std::string songTitle);
     void addSong(std::string artist, std::string title, int duration);
     bool isSongInLib(std::string artist, std::string title);
     std::string listSongs();

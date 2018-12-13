@@ -81,8 +81,7 @@ int main() {
             std::cout << "Enter Song Title: " << std::endl;
             std::string songTitle;
             std::getline(std::cin, songTitle);
-
-
+            
             std::cout << "printing info for " << library->isSongInLib(artistName, songTitle) << std::endl;
         }
 
@@ -101,16 +100,7 @@ int main() {
             std::string fileName;
             std::getline(std::cin,fileName);
 
-            //try to instantiate file
-            //if it doesn't exist, catch and print error message
-            //if it does, add all new songs
-            //list all songs that already existed
-            std::cout << "~" << fileName << "~" << std::endl;
-            std::ifstream myFile(fileName);
-            if(myFile.fail())
-                std::cout << "ouch!" << std::endl;
-            else
-                std::cout << "nice!" << std::endl;
+            //std::cout << library->addFile(fileName) << std::endl;
         }
 
         if(command == "discontinue"){
@@ -125,23 +115,47 @@ int main() {
         if(command == "playlists"){
             inputRecognized = true;
             std::cout << "listing all playlists ..." << std::endl;
+            std::cout << library->listPlaylists() << std::endl;
         }
 
         if(command == "playlist"){
             inputRecognized = true;
-            std::string playlistName = userInput.substr(9, std::string::npos);
-            //print out all the songs left in the playlist and the total duration
+            //get playlistName
+            std::cout << "Enter Playlist name: " << std::endl;
+            std::string playlistName;
+            std::getline(std::cin,playlistName);
+
+            std::cout << library->listSongsOfPlaylist(playlistName);
         }
 
         if(command == "new"){
             inputRecognized = true;
-            std::string newPlaylistName = userInput.substr(4, std::string::npos);
             //make a new empty playlist with the given name
+            //get playlistName
+            std::cout << "Enter new playlist name: " << std::endl;
+            std::string playlistName;
+            std::getline(std::cin, playlistName);
+            library->addPlaylist(playlistName); //TODO: dont make playlists of the same name!!!
         }
 
         if(command == "add"){
             inputRecognized = true;
             //take in playlist name, artist, and song title
+            //get playlistName
+            std::cout << "Enter playlist name: " << std::endl;
+            std::string playlistName;
+            std::getline(std::cin, playlistName);
+            //get artistName
+            std::cout << "Enter Artist Name: " << std::endl;
+            std::string artistName;
+            std::getline(std::cin, artistName);
+            //get songTitle
+            std::cout << "Enter Song Title: " << std::endl;
+            std::string songTitle;
+            std::getline(std::cin, songTitle);
+
+            library->addSongToPlaylist(playlistName, artistName, songTitle);
+
         }
 
         if(command == "remove"){

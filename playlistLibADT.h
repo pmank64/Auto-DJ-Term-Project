@@ -11,10 +11,7 @@ private:
 
 public:
     virtual playlistLibADT()=0;
-
-
     virtual ~playlistLibADT()=0;
-
     virtual void addSong(Song songToAdd)=0;
 
     virtual removeSong(Song songToRemove)=0;
