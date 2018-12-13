@@ -7,6 +7,8 @@
 #include "Song.h"
 #include "Playlist.h"
 #include "PlaylistLib.h"
+#include <fstream>
+#include <iostream>
 
 
 Library::Library() {
@@ -34,12 +36,35 @@ bool Library::isSongInLib(std::string title, std::string artist) {
     return Songs->isSongInLib(title, artist);
 }
 
-std::string addFile(std::string fileName){
+std::string Library::importFile(std::string fileName){
+    std::ifstream myFile;
 
+    std::string outString = "";
+
+    myFile.open(fileName, std::ios::in);
+    std::string temp;
+
+    std::string tempArr[3];
+    int count = 0;
+    bool checker = true;
+
+    while(std::getline(myFile,temp,',')){
+        tempArr[count] = temp;
+        if (count==2){
+            count =-1;
+            //std::cout << tempArr[0] << "..." << tempArr[1] << "..." << tempArr[2] << "..." << std::endl;
+            Songs->addSong(tempArr[0],tempArr[1],stoi(tempArr[2]));
+        }
+        count++;
+    }
+    return "this is where we tell you what songs already existed"; //TODO
+
+
+
+//    Songs->addSong();
 }
 
 std::string removeFile(std::string fileName){
-
 }
 
 void Library::removeSong(std::string title, std::string artist) {

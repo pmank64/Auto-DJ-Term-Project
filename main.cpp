@@ -100,7 +100,24 @@ int main() {
             std::string fileName;
             std::getline(std::cin,fileName);
 
-            //std::cout << library->addFile(fileName) << std::endl;
+            //try to instantiate file
+            //if it doesn't exist, catch and print error message
+            //if it does, add all new songs
+            //list all songs that already existed
+            std::cout << "~" << fileName << "~" << std::endl;
+
+            std::ifstream myFile;
+
+            myFile.open(fileName, std::ios::in);
+
+            if (!myFile) {
+                std::cerr << "Unable to open file: " << fileName << std::endl;
+            }
+            else{//the file is valid!!
+
+                std::cout << library->importFile(fileName) << std::endl;
+            }
+            myFile.close();
         }
 
         if(command == "discontinue"){

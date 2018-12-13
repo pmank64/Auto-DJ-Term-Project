@@ -51,7 +51,11 @@ void SongLibraryArray::addSong(std::string artist, std::string title, int durati
 }
 
 bool SongLibraryArray::isSongInLib(std::string artist, std::string title) {
+    for(int i=0; i<currSongCount; i++)
+        if(array[i]->getArtist()==artist && array[i]->getTitle()==title)
+            return true;
 
+    return false;
 }
 
 std::string SongLibraryArray::listSongs(){

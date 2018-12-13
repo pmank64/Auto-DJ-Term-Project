@@ -25,7 +25,7 @@ public:
     std::string removeFile(std::string fileName);
     //std::string getInfoOf(std::string title, std::string artist);
     bool isSongInLib(std::string title, std::string artist);
-    void importFile(std::string fileName);
+    std::string importFile(std::string fileName);
     void removeSong(std::string title, std::string artist);
     void newPlaylist(std::string newPlaylistName);
 
