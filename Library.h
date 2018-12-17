@@ -27,7 +27,7 @@ public:
     std::string listSongsOfArtist(std::string artistName);
 
     //Add a song to the song library
-    void addSong(std::string title, std::string artist, int duration);
+    void addSong(std::string title, std::string artist, int duration, int playCount);
 
     //delete all the songs in a file, returns a string listing all the songs that weren't deleted
     std::string removeFile(std::string fileName);

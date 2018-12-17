@@ -63,7 +63,7 @@ int main() {
             std::getline(std::cin, strSongDuration);
             int songDuration = std::stoi(strSongDuration);
 
-            library->addSong(artistName, songTitle, songDuration);
+            library->addSong(artistName, songTitle, songDuration, 0);
             std::cout << "Added " << songTitle << " by " << artistName << std::endl;
         }
 

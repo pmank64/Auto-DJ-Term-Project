@@ -29,8 +29,8 @@ std::string Library::listSongsOfArtist(std::string artistName) {
     return Songs->listSongsOfArtist(artistName);
 }
 
-void Library::addSong(std::string title, std::string artist, int duration) {
-    Songs->addSong(title, artist, duration);
+void Library::addSong(std::string title, std::string artist, int duration, int playCount) {
+    Songs->addSong(title, artist, duration, playCount);
 }
 
 std::string Library::importFile(std::string fileName){
@@ -41,18 +41,18 @@ std::string Library::importFile(std::string fileName){
     myFile.open(fileName, std::ios::in);
     std::string temp;
 
-    std::string tempArr[3];
+    std::string tempArr[4];
     int count = 0;
     bool checker = true;
     std::string songsToNotAdd = "Songs that already existed: \n";
 
     while(std::getline(myFile,temp,',')){
         tempArr[count] = temp;
-        if (count==2){
+        if (count==3){
             count =-1;
             //std::cout << tempArr[0] << "..." << tempArr[1] << "..." << tempArr[2] << "..." << std::endl;
             if(!Songs->isSongInLib(tempArr[0],tempArr[1])){ //the song should be added
-                Songs->addSong(tempArr[0],tempArr[1],stoi(tempArr[2]));
+                Songs->addSong(tempArr[0],tempArr[1],stoi(tempArr[2]), stoi(tempArr[3]));
             }
             else{ //the song shouldnt be added
                 songsToNotAdd += tempArr[0] + " by " + tempArr[1] + "\n";

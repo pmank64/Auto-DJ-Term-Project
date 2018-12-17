@@ -4,8 +4,8 @@
 
 #include "SongNode.h"
 
-SongNode::SongNode(std::string artist, std::string title, int duration) {
-    item = new Song(artist, title,duration);
+SongNode::SongNode(std::string artist, std::string title, int duration, int playCount) {
+    item = new Song(artist, title, duration, playCount);
     next = nullptr;
 }
 

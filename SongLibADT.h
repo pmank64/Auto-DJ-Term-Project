@@ -13,7 +13,7 @@ public:
     virtual ~SongLibADT(){};
 
     //Add a new song to the library
-    virtual void addSong(std::string artist, std::string title, int duration) =0;
+    virtual void addSong(std::string artist, std::string title, int duration, int playCount) =0;
 
     //Returns true if song is in library, false if not
     virtual bool isSongInLib(std::string artist, std::string title) =0;

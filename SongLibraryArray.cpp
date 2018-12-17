@@ -26,8 +26,8 @@ void SongLibraryArray::doubleCapacity() {
     array = newArr;
 }
 
-void SongLibraryArray::addSong(std::string artist, std::string title, int duration) {
-    Song* newSong = new Song(artist, title, duration);
+void SongLibraryArray::addSong(std::string artist, std::string title, int duration, int playCount) {
+    Song* newSong = new Song(artist, title, duration, playCount);
     int songIndex=0;
     bool songadded = false;
 
@@ -150,7 +150,7 @@ int SongLibraryArray::getTotalDuration() {
 }
 
 Song* SongLibraryArray::longestSongUnder(int duration) {
-    Song* songHolder = new Song("This is not a song", "I hope no one sees this", 1);
+    Song* songHolder = new Song("This is not a song", "I hope no one sees this", 1,0);
     int largestDuration = 0;
     Song* toReturn = songHolder;
     for(int i=0; i<currSongCount;i++){
@@ -168,6 +168,6 @@ void SongLibraryArray::save(){
     std::ofstream myFile;
     myFile.open("AutoDJSaveFile.txt");
     for(int i=0;i<currSongCount;i++){
-        myFile << array[i]->getArtist() + "," + array[i]->getTitle() + "," + std::to_string(array[i]->getDuration()) + ",";
+        myFile << array[i]->getArtist() + "," + array[i]->getTitle() + "," + std::to_string(array[i]->getDuration()) + "," + std::to_string(array[i]->getPlayCount()) + ",";
     }
 }

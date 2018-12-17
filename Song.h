@@ -14,7 +14,7 @@ private:
     int duration;
     int playCount;
 public:
-    Song(std::string artistIn, std::string titleIn, int durationIn);
+    Song(std::string artistIn, std::string titleIn, int durationIn, int playCountIn);
     Song();
     std::string getArtist();
     std::string getTitle();

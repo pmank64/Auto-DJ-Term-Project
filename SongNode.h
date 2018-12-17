@@ -12,7 +12,7 @@ private:
     Song* item;
     SongNode* next;
 public:
-    SongNode(std::string artist, std::string title, int duration);
+    SongNode(std::string artist, std::string title, int duration, int playCount);
     Song* getItem();
     SongNode* getNext();
     void setNext(SongNode* newNext);

@@ -4,14 +4,14 @@
 #include "Song.h"
 
 
-Song::Song(std::string artistIn, std::string titleIn, int durationIn){
+Song::Song(std::string artistIn, std::string titleIn, int durationIn, int playCountIn){
     artist = artistIn;
     title = titleIn;
     if(durationIn<1)
         duration = 1;
     else
         duration = durationIn;
-    playCount = 0;
+    playCount = playCountIn;
 }
 
 Song::Song(){
