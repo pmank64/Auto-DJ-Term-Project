@@ -28,5 +28,5 @@ void PlaylistNode::setItem(Song* song){
 }
 
 void PlaylistNode::setNext(PlaylistNode* newNext){
-
+    next = newNext;
 }

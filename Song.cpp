@@ -7,7 +7,10 @@
 Song::Song(std::string artistIn, std::string titleIn, int durationIn){
     artist = artistIn;
     title = titleIn;
-    duration = durationIn;
+    if(durationIn<1)
+        duration = 1;
+    else
+        duration = durationIn;
     playCount = 0;
 }
 
@@ -33,7 +36,7 @@ int Song::getPlayCount(){
     return playCount;
 }
 
-void Song::addPlayCount(){
+void Song::play(){
     playCount++;
 }
 

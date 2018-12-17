@@ -4,8 +4,10 @@
 
 int main() {
 
-    //TODO Set up objects and stuff
     Library* library = new Library();
+
+    //load in previous library
+    library->importFile("AutoDJSaveFile.txt");
 
     std::cout << "Welcome to Auto-DJ, type help for a list of commands, type quit to end program." << std::endl;
     std::cout << "Enter Command: " << std::endl;
@@ -20,20 +22,21 @@ int main() {
 
         if(command == "help"){
             inputRecognized = true;
-            std::cout << "o----------------------------List of Commands-----------------------------o" << std::endl;
-            std::cout << "|                     library: display all songs                          |" << std::endl;
-            std::cout << "|             artist <artist>: display all songs of an artist             |" << std::endl;
-            std::cout << "|        song <artist, title>: display info of a song                     |" << std::endl;
-            std::cout << "|           import <filename>: add all songs from a file to library       |" << std::endl;
-            std::cout << "|      discontinue <filename>: remove all songs on a file from library    |" << std::endl;
-            std::cout << "|                   playlists: display the names of all playlists         |" << std::endl;
-            std::cout << "|             playlist <name>: display songs left in playlist and duration|" << std::endl;
-            std::cout << "|                  new <name>: make a new empty playlist                  |" << std::endl;
-            std::cout << "|   add <name, artist, title>: add song to playlist                       |" << std::endl;
-            std::cout << "|remove <name, artist, title>: remove song from playlist                  |" << std::endl;
-            std::cout << "|             playnext <name>: play the next song of a playlist           |" << std::endl;
-            std::cout << "|  newrandom <name, duration>: make a playlist of random songs            |" << std::endl;
-            std::cout << "o-------------------------------------------------------------------------o" << std::endl;
+            std::cout << "o---------------------List of Commands---------------------o" << std::endl;
+            std::cout << "|     library: display all songs                           |" << std::endl;
+            std::cout << "|      artist: display all songs of an artist              |" << std::endl;
+            std::cout << "|        song: display info of a song                      |" << std::endl;
+            std::cout << "|      import: add all songs from a file to library        |" << std::endl;
+            std::cout << "| discontinue: remove all songs on a file from library     |" << std::endl;
+            std::cout << "|   playlists: display the names of all playlists          |" << std::endl;
+            std::cout << "|    playlist: display songs left in playlist and duration |" << std::endl;
+            std::cout << "|         new: make a new empty playlist                   |" << std::endl;
+            std::cout << "|         add: add song to playlist                        |" << std::endl;
+            std::cout << "|      remove: remove song from playlist                   |" << std::endl;
+            std::cout << "|    playnext: play the next song of a playlist            |" << std::endl;
+            std::cout << "|   newrandom: make a playlist of random songs             |" << std::endl;
+            std::cout << "|        quit: Terminate AutoDJ and save library to file   |" << std::endl;
+            std::cout << "o----------------------------------------------------------o" << std::endl;
         }
 
         if(command == "library") {
@@ -64,9 +67,26 @@ int main() {
             std::cout << "Added " << songTitle << " by " << artistName << std::endl;
         }
 
+        if(command == "removesong") {
+            inputRecognized = true;
+            //get artistName
+            std::cout << "Enter Artist Name: " << std::endl;
+            std::string artistName;
+            std::getline(std::cin,artistName);
+            //get songTitle
+            std::cout << "Enter Song Title: " << std::endl;
+            std::string songTitle;
+            std::getline(std::cin,songTitle);
+
+            std::cout << library->removeSong(artistName, songTitle) << std::endl;
+        }
+
         if(command == "artist"){
             inputRecognized = true;
-            std::string artistName = userInput.substr(7, std::string::npos);
+            //get artistName
+            std::cout << "Enter Artist Name: " << std::endl;
+            std::string artistName;
+            std::getline(std::cin, artistName);
             std::cout << "listing all songs by " << artistName << "." << std::endl;
             std::cout << library->listSongsOfArtist(artistName) << std::endl;
         }
@@ -81,8 +101,8 @@ int main() {
             std::cout << "Enter Song Title: " << std::endl;
             std::string songTitle;
             std::getline(std::cin, songTitle);
-            
-            std::cout << "printing info for " << library->isSongInLib(artistName, songTitle) << std::endl;
+
+            std::cout << library->getSongInfo(artistName, songTitle) << std::endl;
         }
 
         if(command == "tests"){
@@ -100,12 +120,6 @@ int main() {
             std::string fileName;
             std::getline(std::cin,fileName);
 
-            //try to instantiate file
-            //if it doesn't exist, catch and print error message
-            //if it does, add all new songs
-            //list all songs that already existed
-            std::cout << "~" << fileName << "~" << std::endl;
-
             std::ifstream myFile;
 
             myFile.open(fileName, std::ios::in);
@@ -122,11 +136,21 @@ int main() {
 
         if(command == "discontinue"){
             inputRecognized = true;
-            std::string fileName = userInput.substr(12, std::string::npos);
-            //try to instantiate file
-            //if it doesn't exist, catch and print error message
-            //if it does, delete all songs listed
-            //list all songs that the file contained, but the library did not
+            //get fileName
+            std::cout << "Enter Filename: " << std::endl;
+            std::string fileName;
+            std::getline(std::cin,fileName);
+            std::ifstream myFile;
+            myFile.open(fileName, std::ios::in);
+
+            if (!myFile) {
+                std::cerr << "Unable to open file: " << fileName << std::endl;
+            }
+            else{//the file is valid!!
+
+                std::cout << library->removeFile(fileName) << std::endl;
+            }
+            myFile.close();
         }
 
         if(command == "playlists"){
@@ -142,7 +166,7 @@ int main() {
             std::string playlistName;
             std::getline(std::cin,playlistName);
 
-            std::cout << library->listSongsOfPlaylist(playlistName);
+            std::cout << library->listSongsOfPlaylist(playlistName) << std::endl;
         }
 
         if(command == "new"){
@@ -152,7 +176,7 @@ int main() {
             std::cout << "Enter new playlist name: " << std::endl;
             std::string playlistName;
             std::getline(std::cin, playlistName);
-            library->addPlaylist(playlistName); //TODO: dont make playlists of the same name!!!
+            std::cout << library->addPlaylist(playlistName) << std::endl;
         }
 
         if(command == "add"){
@@ -171,23 +195,51 @@ int main() {
             std::string songTitle;
             std::getline(std::cin, songTitle);
 
-            library->addSongToPlaylist(playlistName, artistName, songTitle);
+            std::cout << library->addSongToPlaylist(playlistName, artistName, songTitle) << std::endl;
 
         }
 
         if(command == "remove"){
             inputRecognized = true;
             //take in playlist name, artist, and song title
+            std::cout << "Enter playlist name: " << std::endl;
+            std::string playlistName;
+            std::getline(std::cin, playlistName);
+            //get artistName
+            std::cout << "Enter Artist Name: " << std::endl;
+            std::string artistName;
+            std::getline(std::cin, artistName);
+            //get songTitle
+            std::cout << "Enter Song Title: " << std::endl;
+            std::string songTitle;
+            std::getline(std::cin, songTitle);
+
+            std::cout << library->removeSongFromPlaylist(playlistName,artistName,songTitle) << std::endl;
         }
 
         if(command == "playnext"){
             inputRecognized = true;
-            std::string playlistName = userInput.substr(9, std::string::npos);
+            std::cout << "Enter playlist name: " << std::endl;
+            std::string playlistName;
+            std::getline(std::cin, playlistName);
+
+            std::cout << library->playNext(playlistName) << std::endl;
         }
 
         if(command == "newrandom"){
             inputRecognized = true;
             //take in the name for the new playlist and the desired duration
+            std::cout << "Enter playlist name: " << std::endl;
+            std::string playlistName;
+            std::getline(std::cin, playlistName);
+            std::cout << "Enter Max Duration: " << std::endl;
+            std::string strSongDuration;
+            std::getline(std::cin, strSongDuration);
+            int totalDuration = std::stoi(strSongDuration);
+
+            std::cout << library->newRandomPlaylist(playlistName, totalDuration) << std::endl;
+
+
         }
 
         if(!inputRecognized){
@@ -200,7 +252,8 @@ int main() {
         command = userInput.substr(0, userInput.find(" "));
     }
 
-
+    std::cout << "Saving library to file..." << std::endl;
+    library->save();
     std::cout << "Quitting Auto-DJ" << std::endl;
     return 0;
 }

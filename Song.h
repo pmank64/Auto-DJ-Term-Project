@@ -20,7 +20,7 @@ public:
     std::string getTitle();
     int getDuration();
     int getPlayCount();
-    void addPlayCount();
+    void play();
 };
 
 #endif //AUTO_DJ_TERM_PROJECT_SONG_H

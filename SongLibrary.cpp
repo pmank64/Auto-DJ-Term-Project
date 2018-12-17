@@ -14,19 +14,6 @@ SongLibrary::~SongLibrary() {
 }
 
 void SongLibrary::addSong(std::string artist, std::string title, int duration) {
-//    SongNode* newSongNode = new SongNode(newSong);
-//
-//    if(front == nullptr)
-//        front = newSong;
-//    else{
-//        SongNode* currNode = front;
-//        while(currnode->getItem()->getArtist() > newSongNode->getItem()->getArtist())
-//        {
-//            currNode = currNode->getNext();
-//        }
-//
-//    }
-
     //TODO this should add songs in alphabetical order!!!!!!!!!!!!!
     if(front == nullptr){
         SongNode* newSongNode = new SongNode(artist, title, duration);
@@ -41,21 +28,6 @@ void SongLibrary::addSong(std::string artist, std::string title, int duration) {
         SongNode* newSongNode = new SongNode(artist, title, duration);
         currNode->setNext(newSongNode);
     }
-
-//    if(front == nullptr){
-//        SongNode* newSongNode = new SongNode(artist, title, duration);
-//        front = newSongNode;
-//    }
-//    else{
-//        SongNode* currNode = front;
-//        bool songAdded = false;
-//        while(!songAdded){
-//            if(artist>currNode->getItem()->getArtist() && title>currNode->getItem()->getTitle()){
-//                currNode->setNext()
-//            }
-//        }
-//    }
-
 }
 
 Song* SongLibrary::getSongPtr(std::string artist, std::string title){
@@ -66,7 +38,7 @@ std::string SongLibrary::getSongInfo(std::string){
 }
 
 bool SongLibrary::isSongInLib(std::string artist, std::string title) {
-    //TODO this can be more efficient if the songs are in order!!
+    //TODO this can be more efficient if the songs are in order (binary search)
     if(front == nullptr)
         return false;
     else{

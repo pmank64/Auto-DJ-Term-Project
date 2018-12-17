@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="autoDJ"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/cygdrive/c/Users/John Hunter/Desktop/Ithaca Files/Comp220 Labs/Auto-DJ-Term-Project/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make.exe -j4 -f &quot;/cygdrive/c/Users/John\ Hunter/Desktop/Ithaca\ Files/Comp220\ Labs/Auto-DJ-Term-Project/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make.exe -j4 -f &quot;/cygdrive/c/Users/John\ Hunter/Desktop/Ithaca\ Files/Comp220\ Labs/Auto-DJ-Term-Project/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make.exe -j4 -f &quot;/cygdrive/c/Users/John\ Hunter/Desktop/Ithaca\ Files/Comp220\ Labs/Auto-DJ-Term-Project/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make.exe -j4 -f &quot;/cygdrive/c/Users/John\ Hunter/Desktop/Ithaca\ Files/Comp220\ Labs/Auto-DJ-Term-Project/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/cygdrive/c/Users/John Hunter/Desktop/Ithaca Files/Comp220 Labs/Auto-DJ-Term-Project/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make.exe -j4 -f &quot;/cygdrive/c/Users/John\ Hunter/Desktop/Ithaca\ Files/Comp220\ Labs/Auto-DJ-Term-Project/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make.exe -j4 -f &quot;/cygdrive/c/Users/John\ Hunter/Desktop/Ithaca\ Files/Comp220\ Labs/Auto-DJ-Term-Project/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make.exe -j4 -f &quot;/cygdrive/c/Users/John\ Hunter/Desktop/Ithaca\ Files/Comp220\ Labs/Auto-DJ-Term-Project/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make.exe -j4 -f &quot;/cygdrive/c/Users/John\ Hunter/Desktop/Ithaca\ Files/Comp220\ Labs/Auto-DJ-Term-Project/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="autoDJ">
+				<Option output="/cygdrive/c/Users/John Hunter/Desktop/Ithaca Files/Comp220 Labs/Auto-DJ-Term-Project/cmake-build-debug/autoDJ.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/cygdrive/c/Users/John Hunter/Desktop/Ithaca Files/Comp220 Labs/Auto-DJ-Term-Project/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/7.3.0/include/c++"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/7.3.0/include/c++/x86_64-pc-cygwin"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/7.3.0/include/c++/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/7.3.0/include"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/7.3.0/../../../../lib/../include/w32api"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make.exe -j4 -f &quot;/cygdrive/c/Users/John\ Hunter/Desktop/Ithaca\ Files/Comp220\ Labs/Auto-DJ-Term-Project/cmake-build-debug/Makefile&quot;  VERBOSE=1 autoDJ"/>
+					<CompileFile command="/usr/bin/make.exe -j4 -f &quot;/cygdrive/c/Users/John\ Hunter/Desktop/Ithaca\ Files/Comp220\ Labs/Auto-DJ-Term-Project/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make.exe -j4 -f &quot;/cygdrive/c/Users/John\ Hunter/Desktop/Ithaca\ Files/Comp220\ Labs/Auto-DJ-Term-Project/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make.exe -j4 -f &quot;/cygdrive/c/Users/John\ Hunter/Desktop/Ithaca\ Files/Comp220\ Labs/Auto-DJ-Term-Project/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="autoDJ/fast">
+				<Option output="/cygdrive/c/Users/John Hunter/Desktop/Ithaca Files/Comp220 Labs/Auto-DJ-Term-Project/cmake-build-debug/autoDJ.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/cygdrive/c/Users/John Hunter/Desktop/Ithaca Files/Comp220 Labs/Auto-DJ-Term-Project/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/7.3.0/include/c++"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/7.3.0/include/c++/x86_64-pc-cygwin"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/7.3.0/include/c++/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/7.3.0/include"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/7.3.0/../../../../lib/../include/w32api"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make.exe -j4 -f &quot;/cygdrive/c/Users/John\ Hunter/Desktop/Ithaca\ Files/Comp220\ Labs/Auto-DJ-Term-Project/cmake-build-debug/Makefile&quot;  VERBOSE=1 autoDJ/fast"/>
+					<CompileFile command="/usr/bin/make.exe -j4 -f &quot;/cygdrive/c/Users/John\ Hunter/Desktop/Ithaca\ Files/Comp220\ Labs/Auto-DJ-Term-Project/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make.exe -j4 -f &quot;/cygdrive/c/Users/John\ Hunter/Desktop/Ithaca\ Files/Comp220\ Labs/Auto-DJ-Term-Project/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make.exe -j4 -f &quot;/cygdrive/c/Users/John\ Hunter/Desktop/Ithaca\ Files/Comp220\ Labs/Auto-DJ-Term-Project/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/cygdrive/c/Users/John Hunter/Desktop/Ithaca Files/Comp220 Labs/Auto-DJ-Term-Project/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make.exe -j4 -f &quot;/cygdrive/c/Users/John\ Hunter/Desktop/Ithaca\ Files/Comp220\ Labs/Auto-DJ-Term-Project/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make.exe -j4 -f &quot;/cygdrive/c/Users/John\ Hunter/Desktop/Ithaca\ Files/Comp220\ Labs/Auto-DJ-Term-Project/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make.exe -j4 -f &quot;/cygdrive/c/Users/John\ Hunter/Desktop/Ithaca\ Files/Comp220\ Labs/Auto-DJ-Term-Project/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make.exe -j4 -f &quot;/cygdrive/c/Users/John\ Hunter/Desktop/Ithaca\ Files/Comp220\ Labs/Auto-DJ-Term-Project/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/cygdrive/c/Users/John Hunter/Desktop/Ithaca Files/Comp220 Labs/Auto-DJ-Term-Project/Library.cpp">
+			<Option target="autoDJ"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/John Hunter/Desktop/Ithaca Files/Comp220 Labs/Auto-DJ-Term-Project/Library.h">
+			<Option target="autoDJ"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/John Hunter/Desktop/Ithaca Files/Comp220 Labs/Auto-DJ-Term-Project/Playlist.cpp">
+			<Option target="autoDJ"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/John Hunter/Desktop/Ithaca Files/Comp220 Labs/Auto-DJ-Term-Project/Playlist.h">
+			<Option target="autoDJ"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/John Hunter/Desktop/Ithaca Files/Comp220 Labs/Auto-DJ-Term-Project/PlaylistLib.cpp">
+			<Option target="autoDJ"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/John Hunter/Desktop/Ithaca Files/Comp220 Labs/Auto-DJ-Term-Project/PlaylistLib.h">
+			<Option target="autoDJ"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/John Hunter/Desktop/Ithaca Files/Comp220 Labs/Auto-DJ-Term-Project/PlaylistNode.cpp">
+			<Option target="autoDJ"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/John Hunter/Desktop/Ithaca Files/Comp220 Labs/Auto-DJ-Term-Project/PlaylistNode.h">
+			<Option target="autoDJ"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/John Hunter/Desktop/Ithaca Files/Comp220 Labs/Auto-DJ-Term-Project/Song.cpp">
+			<Option target="autoDJ"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/John Hunter/Desktop/Ithaca Files/Comp220 Labs/Auto-DJ-Term-Project/Song.h">
+			<Option target="autoDJ"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/John Hunter/Desktop/Ithaca Files/Comp220 Labs/Auto-DJ-Term-Project/SongLibrary.cpp">
+			<Option target="autoDJ"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/John Hunter/Desktop/Ithaca Files/Comp220 Labs/Auto-DJ-Term-Project/SongLibrary.h">
+			<Option target="autoDJ"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/John Hunter/Desktop/Ithaca Files/Comp220 Labs/Auto-DJ-Term-Project/SongLibraryArray.cpp">
+			<Option target="autoDJ"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/John Hunter/Desktop/Ithaca Files/Comp220 Labs/Auto-DJ-Term-Project/SongLibraryArray.h">
+			<Option target="autoDJ"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/John Hunter/Desktop/Ithaca Files/Comp220 Labs/Auto-DJ-Term-Project/SongNode.cpp">
+			<Option target="autoDJ"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/John Hunter/Desktop/Ithaca Files/Comp220 Labs/Auto-DJ-Term-Project/SongNode.h">
+			<Option target="autoDJ"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/John Hunter/Desktop/Ithaca Files/Comp220 Labs/Auto-DJ-Term-Project/main.cpp">
+			<Option target="autoDJ"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/John Hunter/Desktop/Ithaca Files/Comp220 Labs/Auto-DJ-Term-Project/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

@@ -9,7 +9,12 @@
 #include "Song.h"
 #include "SongNode.h"
 
-class SongLibrary {
+//!!!
+//This class uses Nodes to store songs
+//After deciding we should use arrays to store songs, this class was abandoned
+//SongLibraryArray is the correct song library class
+
+class SongLibrary: public SongLibADT{
 private:
     SongNode* front;
 public:

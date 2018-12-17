@@ -8,7 +8,7 @@
 #include "SongLibADT.h"
 #include "Song.h"
 
-class SongLibraryArray {
+class SongLibraryArray: public SongLibADT {
 private:
     Song** array;
     int currSongCount;
@@ -22,9 +22,16 @@ public:
 
     Song* getSongPtr(std::string artistName, std::string songTitle);
     void addSong(std::string artist, std::string title, int duration);
+    std::string removeSong(std::string artist, std::string title);
     bool isSongInLib(std::string artist, std::string title);
+    std::string getSongInfo(std::string artist, std::string title);
     std::string listSongs();
     std::string listSongsOfArtist(std::string artistName);
+    int getCurrSongCount();
+    Song* getRandomSong();
+    int getTotalDuration();
+    Song* longestSongUnder(int duration);
+    void save();
 };
 
 

@@ -33,20 +33,41 @@ Playlist& Playlist::operator=(const Playlist& playlistToCopy){
  */
 Song* Playlist::removeSong(Song* toRemove) {
 
+    //this happens if there are no songs
     if (front == nullptr){
         throw std::out_of_range("Song Not Found");
     }
+    //this happens when there is only one song
+    else if (front->getNext()==nullptr){
+        duration -= toRemove->getDuration();
+        Song* returnItem = front->getItem();
+        delete front;
+        front = nullptr;
+        return returnItem;
+    }
+    //this happens if the first node is the song to remove
+    else if (front->getItem() == toRemove){
+        duration -= toRemove->getDuration();
+        Song* toReturn = front->getItem();
+        PlaylistNode* frontHolder = front;
+        front = front->getNext();
+        delete frontHolder;
+        return toReturn;
+    }
+    //this happens when there are multiple songs
     else{
         bool tracker = true;
+        duration -= toRemove->getDuration();
         PlaylistNode* progress = this->front;
         while (tracker){
-            if (progress->getItem() == toRemove){
+            if (progress->getNext()->getItem() == toRemove){
                 tracker = false;
             }
             else{
                 progress = progress->getNext();
             }
         }
+
         //gets the next node
         PlaylistNode* newNode = progress->getNext();
 
@@ -68,6 +89,7 @@ Song* Playlist::removeSong(Song* toRemove) {
 
 void Playlist::addSongToPlaylist(Song* songToAdd){
     PlaylistNode* nodeToAdd = new PlaylistNode(songToAdd);
+    this->duration += songToAdd->getDuration();
     if (front == nullptr){
         front = nodeToAdd;
     }
@@ -75,7 +97,7 @@ void Playlist::addSongToPlaylist(Song* songToAdd){
         PlaylistNode* currNode = front;
         bool tracker = true;
         while (tracker){
-            if (currNode == nullptr){
+            if (currNode->getNext() == nullptr){
                 currNode->setNext(nodeToAdd);
                 tracker = false;
             }
@@ -83,10 +105,9 @@ void Playlist::addSongToPlaylist(Song* songToAdd){
         }
 
     }
-    //TODO does this work?
 }
 
-float Playlist::getDuration(){
+int Playlist::getDuration(){
     return duration;
 }
 
@@ -113,4 +134,33 @@ std::string Playlist::listSongs() {
         toString = toString + std::to_string(count) + ". " + currNode->getItem()->getTitle() + " by " + currNode->getItem()->getArtist() + " (" + std::to_string(currNode->getItem()->getDuration()) + ") \n";
         return toString;
     }
+}
+
+bool  Playlist::isSongInPlaylist(std::string artistName, std::string songTitle){
+    if (front == nullptr){
+        return false;
+    }
+    else{
+        PlaylistNode* currNode = front;
+        bool tracker = true;
+        while (tracker){
+            if (currNode->getItem()->getArtist()==artistName && currNode->getItem()->getTitle()==songTitle){
+                return true;
+            }
+            if (currNode->getNext() == nullptr){
+                tracker =  false;
+            }
+            currNode = currNode->getNext();
+        }
+
+    }
+    return false;
+}
+
+std::string Playlist::playNext() {
+    Song* toPlay = front->getItem();
+    toPlay->play();
+    std::string toReturn = "Playing " + toPlay->getTitle() + " by " + toPlay->getArtist() + " (" + std::to_string(toPlay->getDuration()) + ") Playcount: " + std::to_string(toPlay->getPlayCount());
+    this->removeSong(toPlay);
+    return toReturn;
 }
