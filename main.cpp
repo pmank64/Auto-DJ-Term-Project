@@ -4,6 +4,8 @@
 
 int main() {
 
+    srand(time(NULL));
+
     Library* library = new Library();
 
     //load in previous library
@@ -103,14 +105,6 @@ int main() {
             std::getline(std::cin, songTitle);
 
             std::cout << library->getSongInfo(artistName, songTitle) << std::endl;
-        }
-
-        if(command == "tests"){
-            inputRecognized = true;
-            if("bbb" > "ccc")
-                std::cout << "bb" << std::endl;
-            else
-                std::cout << "cc" << std::endl;
         }
 
         if(command == "import"){
