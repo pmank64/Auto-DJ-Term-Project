@@ -10,11 +10,9 @@
 //}
 //
 //SongLibrary::~SongLibrary() {
-//    //TODO
 //}
 //
 //void SongLibrary::addSong(std::string artist, std::string title, int duration, int playCount) {
-//    //TODO this should add songs in alphabetical order!!!!!!!!!!!!!
 //    if(front == nullptr){
 //        SongNode* newSongNode = new SongNode(artist, title, duration, playCount);
 //        front = newSongNode;

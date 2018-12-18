@@ -10,19 +10,22 @@ Playlist::Playlist(std::string playlistNameIn){
 }
 
 Playlist::~Playlist(){
-    bool checker = true;
-    PlaylistNode* progress = this->front;
-    while (checker){
-        if (progress == nullptr){
-            checker = false;
-        }
-        else{
-            delete progress;
-            progress = progress->getNext();
-        }
-        front = nullptr;
-    }
+    //TODO this wasn't working. Couldn't figure it out before the deadline :(
+//    bool checker = true;
+//    PlaylistNode* progress = this->front;
+//    while (checker){
+//        if (progress->getNext() == nullptr){
+//            checker = false;
+//        }
+//        PlaylistNode* progressholder = progress;
+//        delete progress;
+//        progress = nullptr;
+//        progress = progressholder->getNext();
+//        delete progressholder;
+//    }
+//    front = nullptr;
 }
+
 
 Playlist& Playlist::operator=(const Playlist& playlistToCopy){
     //TODO

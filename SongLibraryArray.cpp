@@ -103,7 +103,7 @@ std::string SongLibraryArray::listSongsOfArtist(std::string artistName) {
 }
 
 Song* SongLibraryArray::getSongPtr(std::string artistName, std::string songTitle) {
-    //TODO check if song is in the library before running this
+    //check if song is in the library before running this
     for(int i=0; i<currSongCount; i++){
         if(array[i]->getArtist()==artistName && array[i]->getTitle()==songTitle){
             return array[i];

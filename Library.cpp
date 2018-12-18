@@ -17,8 +17,8 @@ Library::Library() {
 }
 
 Library::~Library() {
-    delete Songs;
     delete Playlists;
+    delete Songs;
 }
 
 std::string Library::listSongs(){

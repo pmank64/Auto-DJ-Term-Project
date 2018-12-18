@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include "Library.h"
+#include "tests.cpp"
 
 int main() {
 
@@ -25,6 +26,7 @@ int main() {
         if(command == "help"){
             inputRecognized = true;
             std::cout << "o---------------------List of Commands---------------------o" << std::endl;
+            std::cout << "|  importfile: songimportfile.txt                          |" << std::endl;
             std::cout << "|     library: display all songs                           |" << std::endl;
             std::cout << "|      artist: display all songs of an artist              |" << std::endl;
             std::cout << "|        song: display info of a song                      |" << std::endl;
@@ -37,6 +39,7 @@ int main() {
             std::cout << "|      remove: remove song from playlist                   |" << std::endl;
             std::cout << "|    playnext: play the next song of a playlist            |" << std::endl;
             std::cout << "|   newrandom: make a playlist of random songs             |" << std::endl;
+            std::cout << "|        test: run the auto tests                          |" << std::endl;
             std::cout << "|        quit: Terminate AutoDJ and save library to file   |" << std::endl;
             std::cout << "o----------------------------------------------------------o" << std::endl;
         }
@@ -190,8 +193,8 @@ int main() {
             std::getline(std::cin, songTitle);
 
             std::cout << library->addSongToPlaylist(playlistName, artistName, songTitle) << std::endl;
-
         }
+
 
         if(command == "remove"){
             inputRecognized = true;
@@ -234,6 +237,15 @@ int main() {
             std::cout << library->newRandomPlaylist(playlistName, totalDuration) << std::endl;
 
 
+        }
+
+        if(command == "test"){
+            inputRecognized = true;
+            Library* testLib = new Library();
+            addSongsToLibrary(testLib);
+            createPlaylists(testLib);
+            checkPlaylists(testLib);
+            delete testLib;
         }
 
         if(!inputRecognized){
