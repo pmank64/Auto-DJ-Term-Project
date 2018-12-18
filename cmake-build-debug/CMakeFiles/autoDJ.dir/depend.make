@@ -11,7 +11,6 @@ CMakeFiles/autoDJ.dir/Library.cpp.o: ../Song.h
 CMakeFiles/autoDJ.dir/Library.cpp.o: ../SongLibADT.h
 CMakeFiles/autoDJ.dir/Library.cpp.o: ../SongLibrary.h
 CMakeFiles/autoDJ.dir/Library.cpp.o: ../SongLibraryArray.h
-CMakeFiles/autoDJ.dir/Library.cpp.o: ../SongNode.h
 CMakeFiles/autoDJ.dir/Library.cpp.o: ../playlistLibADT.h
 
 CMakeFiles/autoDJ.dir/Playlist.cpp.o: ../Playlist.cpp
@@ -35,11 +34,7 @@ CMakeFiles/autoDJ.dir/PlaylistNode.cpp.o: ../Song.h
 CMakeFiles/autoDJ.dir/Song.cpp.o: ../Song.cpp
 CMakeFiles/autoDJ.dir/Song.cpp.o: ../Song.h
 
-CMakeFiles/autoDJ.dir/SongLibrary.cpp.o: ../Song.h
-CMakeFiles/autoDJ.dir/SongLibrary.cpp.o: ../SongLibADT.h
 CMakeFiles/autoDJ.dir/SongLibrary.cpp.o: ../SongLibrary.cpp
-CMakeFiles/autoDJ.dir/SongLibrary.cpp.o: ../SongLibrary.h
-CMakeFiles/autoDJ.dir/SongLibrary.cpp.o: ../SongNode.h
 
 CMakeFiles/autoDJ.dir/SongLibraryArray.cpp.o: ../Song.h
 CMakeFiles/autoDJ.dir/SongLibraryArray.cpp.o: ../SongLibADT.h

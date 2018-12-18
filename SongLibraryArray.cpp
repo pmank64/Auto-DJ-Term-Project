@@ -32,15 +32,14 @@ void SongLibraryArray::addSong(std::string artist, std::string title, int durati
     bool songadded = false;
 
     for(int i=0;i<currSongCount;i++){ //determine which index the song should be placed in
-        if(artist<array[i]->getArtist()){
-            if(title<array[i]->getTitle()){
-                songIndex = i;
-                songadded = true;
-                break;
-            }
+        std::string toCompare = array[i]->getArtist() + array[i]->getTitle();
+        if(toCompare.compare(artist+title)>0){
+            songIndex = i;
+            songadded = true;
+            break;
         }
     }
-    if(!songadded)
+    if(!songadded) //the song should be placed at the end
         songIndex = currSongCount;
 
     if(currSongCount>=currCapacity)
@@ -48,14 +47,24 @@ void SongLibraryArray::addSong(std::string artist, std::string title, int durati
 
     currSongCount++;
 
-    for(int j=currSongCount-1; j>=songIndex; j--){ //shift everything down
+    for(int j=currSongCount-1; j>=songIndex; j--){ //shift everything up
         array[j+1] = array[j];
     }
     array[songIndex] = newSong;
-
-
-
 }
+
+//void SongLibraryArray::addSong(std::string artist, std::string title, int duration, int playCount) {
+//    Song* newSong = new Song(artist, title, duration, playCount);
+//
+//    for(int i=0; i<currSongCount;i++){
+//        if(array[i]->getArtist().compare(artist)<0){
+//            if(array[i]->getTitle().compare(title)<0){
+//
+//            }
+//        }
+//    }
+//
+//}
 
 bool SongLibraryArray::isSongInLib(std::string artist, std::string title) {
     for(int i=0; i<currSongCount; i++)
@@ -71,12 +80,11 @@ std::string SongLibraryArray::listSongs(){
     else{
         std::string toString = "";
         for(int i=0;i<currSongCount;i++){
-            toString = toString + std::to_string(i+1) + ". " + array[i]->getTitle() + " by " + array[i]->getArtist() + " (" + std::to_string(array[i]->getDuration()) + ") \n";
+            toString = toString + std::to_string(i+1) + ". " + array[i]->getTitle() + " by " + array[i]->getArtist() + " (" + std::to_string(array[i]->getDuration()) + ") [" + std::to_string(array[i]->getPlayCount()) + "]\n";
         }
 
         return toString;
     }
-
 }
 
 std::string SongLibraryArray::listSongsOfArtist(std::string artistName) {
@@ -137,7 +145,6 @@ int SongLibraryArray::getCurrSongCount() {
 }
 
 Song* SongLibraryArray::getRandomSong(){
-    srand(time(NULL));
     int ranNum = rand() % currSongCount;
     return array[ranNum];
 }
